@@ -31,8 +31,14 @@ const generateResponse = intent => {
   }
 }
 
-app.use(bodyParser.urlencoded())
-app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded())
+// app.use(bodyParser.json())
+
+app.use(bodyParser.json({
+  verify: (req, res, buf) => {
+    req.rawBody = buf
+  }
+}))
 
 app.post("/stripe/createPaymentIntent", async (req, res, next) => {
   const { amount, currency = 'gbp', walletAddress } = req.body
