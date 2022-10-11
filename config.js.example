@@ -9,8 +9,17 @@
     "webhookSecret": "STRIPE_WEBHOOK_SECRET"
   },
   "fuse": {
+    api: {
+      v2: 'https://studio.fuse.io/api/v2'
+    },
     "admin": {
       "jwt": "FUSE_JWT_ADMIN_API"
+    }
+  },
+  mint: {
+    args: {
+      networkType: 'fuse',
+      tokenAddress: '0x40AFCD9421577407ABB0d82E2fF25Fd2Ef4c68BD'
     }
   }
 }
