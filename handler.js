@@ -8,9 +8,9 @@ const config = require('config')
 // get function from lodash
 const { get } = require('lodash')
 // Access stripe
-const { stripeClient } = require('@services/stripe')
+const { stripeClient } = require('./services/stripe')
 // Access fuse
-const { mintTokensAndSendToken, generateCorrelationId } = require('@utils/fuseApi')
+const { mintTokensAndSendToken, generateCorrelationId } = require('./utils/fuseApi')
 
 const generateResponse = intent => {
   switch (intent.status) {
@@ -109,7 +109,7 @@ app.post("/stripe/webhook", async (req, res, next) => {
   res.sendStatus(200)
 });
 
-router.get('/is_running', (req, res, next) => {
+app.get('/is_running', (req, res, next) => {
   res.send({ response: 'ok' })
 })
 
